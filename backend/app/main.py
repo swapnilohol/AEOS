@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import PROJECT_NAME
 from app.models import (
     user,
@@ -19,6 +19,15 @@ from app.routers.testcase import (
 from app.database import Base, engine
 app = FastAPI(
     title=PROJECT_NAME
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 from app.routers.leaderboard import (
     router as leaderboard_router

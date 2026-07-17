@@ -1,0 +1,595 @@
+# =============================================================================
+#
+#                 AI ENGINEERING OPERATING SYSTEM (AEOS)
+#
+#                         EDITOR MODULE
+#
+# =============================================================================
+
+
+LOAD CONTEXT
+
+Before generating any implementation, load:
+
+1.
+00_MASTER_CONTEXT.md
+
+2.
+01_GLOBAL_RULES.md
+
+3.
+02_ARCHITECTURE.md
+
+4.
+03_CODING_STANDARDS.md
+
+5.
+prompts/01_database.md
+
+6.
+prompts/02_auth.md
+
+7.
+prompts/03_admin.md
+
+8.
+prompts/04_student.md
+
+9.
+context/project_state.md
+
+
+Follow all AEOS engineering rules.
+
+
+IMPORTANT:
+
+- Generate only Editor Module implementation prompt.
+- Do not generate code.
+- Do not modify previous prompts.
+- Follow existing architecture.
+- Stop after editor module prompt completion.
+
+
+
+# =============================================================================
+# OBJECTIVE
+# =============================================================================
+
+
+Design the production-ready Editor Module for:
+
+TheGCPal Labs AI Elite Internship Hackathon Platform.
+
+
+This module manages:
+
+✓ Code Editor Interface
+
+✓ Problem Workspace
+
+✓ Code Draft Management
+
+✓ Language Selection
+
+✓ Submission Preparation
+
+✓ Editor Permissions
+
+
+
+Target:
+
+- Live AI assessment environment
+- Production-ready MVP
+
+
+
+# =============================================================================
+# ARCHITECTURE REQUIREMENT
+# =============================================================================
+
+
+Follow Clean Architecture:
+
+
+Frontend
+
+↓
+
+API Controller
+
+↓
+
+Service Layer
+
+↓
+
+Repository Layer
+
+↓
+
+Database
+
+
+
+Responsibilities:
+
+
+Controller:
+
+- API handling
+- Request validation
+- Response formatting
+
+
+Service:
+
+- Editor workflow
+- Business logic
+- Authorization
+
+
+Repository:
+
+- Database operations only
+
+
+
+# =============================================================================
+# EDITOR ROLE
+# =============================================================================
+
+
+Role:
+
+EDITOR
+
+
+Editor can:
+
+✓ Access assigned problems
+
+✓ View problem details
+
+✓ Write code
+
+✓ Save draft
+
+✓ Prepare submission
+
+
+
+Editor cannot:
+
+- Access admin panel
+- Modify problems
+- View hidden test cases
+- Access other users data
+
+
+
+# =============================================================================
+# CODE EDITOR FEATURES
+# =============================================================================
+
+
+Generate design for:
+
+
+Code Workspace:
+
+
+Features:
+
+- Code writing area
+- Syntax highlighting
+- Language selection
+- Auto save draft
+- Clear code option
+- Submit solution button
+
+
+Supported Languages:
+
+
+Java
+
+Python
+
+C++
+
+JavaScript
+
+
+
+# =============================================================================
+# DATABASE REQUIREMENTS
+# =============================================================================
+
+
+Create or extend:
+
+
+code_drafts
+
+
+Fields:
+
+
+id
+
+student_id
+
+problem_id
+
+language
+
+source_code
+
+saved_at
+
+created_at
+
+updated_at
+
+
+
+editor_sessions
+
+
+Fields:
+
+
+id
+
+student_id
+
+problem_id
+
+session_token
+
+started_at
+
+last_active_at
+
+
+
+# =============================================================================
+# API DESIGN
+# =============================================================================
+
+
+Base:
+
+
+/api/v1/editor
+
+
+
+# =============================================================================
+# EDITOR APIs
+# =============================================================================
+
+
+GET
+
+/editor/problems
+
+
+GET
+
+/editor/problems/{id}
+
+
+POST
+
+/editor/drafts
+
+
+PUT
+
+/editor/drafts/{id}
+
+
+GET
+
+/editor/drafts
+
+
+POST
+
+/editor/submit
+
+
+
+# =============================================================================
+# BACKEND SERVICES
+# =============================================================================
+
+
+Generate design for:
+
+
+Controllers:
+
+
+editor_controller
+
+
+Services:
+
+
+editor_service
+
+draft_service
+
+
+Repositories:
+
+
+draft_repository
+
+editor_repository
+
+
+
+Follow:
+
+
+Controller
+
+↓
+
+Service
+
+↓
+
+Repository
+
+
+
+# =============================================================================
+# FRONTEND PAGES
+# =============================================================================
+
+
+Generate design for:
+
+
+/editor/workspace/[id]
+
+
+Components:
+
+
+CodeEditor
+
+
+ProblemPanel
+
+
+LanguageSelector
+
+
+SubmitButton
+
+
+DraftStatus
+
+
+
+Requirements:
+
+
+✓ Responsive UI
+
+✓ Loading state
+
+✓ Error handling
+
+✓ Protected routes
+
+
+
+# =============================================================================
+# SECURITY REQUIREMENTS
+# =============================================================================
+
+
+Mandatory:
+
+
+✓ JWT authentication
+
+✓ Role validation
+
+✓ Secure code storage
+
+✓ Input validation
+
+
+Never expose:
+
+
+- Hidden test cases
+- Internal execution details
+- Tokens
+- Passwords
+
+
+
+# =============================================================================
+# ERROR HANDLING
+# =============================================================================
+
+
+Create errors:
+
+
+EditorAccessDenied
+
+DraftNotFound
+
+InvalidLanguage
+
+SubmissionError
+
+
+
+Response format:
+
+
+{
+ "success": false,
+ "message": "",
+ "errors": []
+}
+
+
+
+# =============================================================================
+# TESTING REQUIREMENTS
+# =============================================================================
+
+
+Generate testing strategy for:
+
+
+Authentication:
+
+✓ Editor login
+
+
+Authorization:
+
+✓ Editor access allowed
+
+
+Draft:
+
+✓ Save draft
+
+✓ Update draft
+
+
+Submission:
+
+✓ Submit code
+
+
+
+# =============================================================================
+# DOCUMENTATION REQUIREMENTS
+# =============================================================================
+
+
+Update:
+
+
+README.md
+
+
+Include:
+
+
+Editor workflow
+
+API documentation
+
+Permission model
+
+Database changes
+
+
+
+# =============================================================================
+# OUTPUT FORMAT
+# =============================================================================
+
+
+When this prompt is executed, generate:
+
+
+1. Architecture reasoning
+
+2. Database updates
+
+3. Affected files
+
+4. Backend implementation
+
+5. Frontend implementation
+
+6. Tests
+
+7. Documentation updates
+
+8. Repository State Snapshot
+
+
+Then STOP.
+
+
+
+# =============================================================================
+# REPOSITORY STATE SNAPSHOT
+# =============================================================================
+
+
+Repository Version:
+
+0.7.0
+
+
+Completed:
+
+✓ Bootstrap
+
+✓ Database
+
+✓ Authentication
+
+✓ Admin Portal
+
+✓ Student Module
+
+✓ Editor Module Design
+
+
+Pending:
+
+- Execution Engine
+
+- Evaluation Engine
+
+- Scoring
+
+- Dashboard
+
+- Deployment
+
+
+Database Version:
+
+v5
+
+
+API Version:
+
+v1
+
+
+Next Prompt:
+
+prompts/06_executor.md
+
+
+Maximum:
+
+300 tokens.
+
+
+STOP AFTER EDITOR MODULE PROMPT COMPLETION.
+
+# =============================================================================

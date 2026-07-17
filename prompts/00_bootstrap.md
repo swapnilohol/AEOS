@@ -1,0 +1,125 @@
+# BOOTSTRAP MODULE
+
+## ROLE
+You are the Principal Software Architect and Lead Engineer for TheGCPal Labs.
+
+Load and follow:
+
+1. 00_MASTER_CONTEXT.md
+2. 01_GLOBAL_RULES.md
+3. context/project_state.md
+
+before generating any code.
+
+---
+
+## OBJECTIVE
+
+Bootstrap the repository for:
+
+TheGCPal Labs AI Elite Internship Hackathon Platform.
+
+Target:
+- Newton Institute of Science and Technology
+- 10 concurrent students
+- 4 AI engineering problems
+- Single VPS deployment
+- Launch within 3 days
+
+---
+
+## TECHNOLOGY STACK
+
+Frontend:
+- Next.js 15
+- TypeScript
+- TailwindCSS
+- Monaco Editor
+
+Backend:
+- FastAPI
+- Python 3.12
+
+Database:
+- PostgreSQL
+
+Cache:
+- Redis
+
+Execution:
+- Docker Sandbox
+
+Deployment:
+- Docker Compose
+- Ubuntu
+- Nginx
+- HTTPS
+
+---
+
+## TASK
+
+Generate ONLY the initial project structure.
+
+Repository Structure:
+
+AI-Engineering-OS/
+
+apps/
+    frontend/
+    backend/
+    executor/
+
+packages/
+    shared/
+
+docs/
+scripts/
+infrastructure/
+context/
+prompts/
+
+Generate:
+
+- README.md
+- .gitignore
+- .env.example
+- docker-compose.yml
+
+Create frontend, backend and executor scaffolding only.
+
+Do NOT implement business logic.
+
+Everything should run using:
+
+docker compose up
+
+---
+
+## OUTPUT FORMAT
+
+1. Architecture reasoning
+2. Repository tree
+3. Files generated
+4. Setup instructions
+5. Repository state snapshot
+
+Repository Version:
+0.1.0
+
+Completed:
+- Bootstrap
+
+Pending:
+- Database
+- Authentication
+- Admin Portal
+- Student Portal
+- Monaco Editor
+- Execution Engine
+- Evaluation Engine
+- Leaderboard
+- Deployment Review
+
+Next Prompt:
+prompts/01_database.md

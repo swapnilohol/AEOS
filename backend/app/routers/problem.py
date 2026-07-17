@@ -92,3 +92,66 @@ def get_problem(
         }
 
     return problem
+@router.delete("/{problem_id}")
+def delete_problem(
+    problem_id: int,
+    db: Session = Depends(get_db),
+    user: User = Depends(
+        require_role("ADMIN")
+    )
+):
+
+    problem = (
+        db.query(Problem)
+        .filter(
+            Problem.id == problem_id
+        )
+        .first()
+    )
+
+    if not problem:
+        return {
+            "error": "Problem not found"
+        }
+
+    db.delete(problem)
+    db.commit()
+
+    return {
+        "message": "Problem deleted"
+    }
+@router.put("/{problem_id}")
+def update_problem(
+    problem_id: int,
+    problem_data: ProblemCreate,
+    db: Session = Depends(get_db),
+    user: User = Depends(
+        require_role("ADMIN")
+    )
+):
+
+    problem = (
+        db.query(Problem)
+        .filter(
+            Problem.id == problem_id
+        )
+        .first()
+    )
+
+    if not problem:
+        return {
+            "error": "Problem not found"
+        }
+
+    problem.title = problem_data.title
+    problem.description = problem_data.description
+    problem.difficulty = problem_data.difficulty
+    problem.points = problem_data.points
+
+    db.commit()
+    db.refresh(problem)
+
+    return {
+        "message": "Problem updated",
+        "id": problem.id
+    }

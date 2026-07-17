@@ -45,9 +45,7 @@ def health():
 def submit_code(
     submission: SubmissionCreate,
     db: Session = Depends(get_db),
-    current_user: User = Depends(
-        get_current_user
-    )
+    current_user: User = Depends(get_current_user)
 ):
 
     new_submission = Submission(
@@ -65,9 +63,7 @@ def submit_code(
     testcases = (
         db.query(TestCase)
         .filter(
-            TestCase.problem_id
-            ==
-            submission.problem_id
+            TestCase.problem_id == submission.problem_id
         )
         .all()
     )
@@ -82,36 +78,50 @@ def submit_code(
             tc.input_data
         )
 
-        output = result["output"].strip()
-        expected = tc.expected_output.strip()
+        output = (
+            result["output"]
+            .strip()
+            .replace(" ", "")
+        )
+
+        expected = (
+            tc.expected_output
+            .strip()
+            .replace(" ", "")
+        )
 
         if output == expected:
             passed += 1
 
+
     problem = (
         db.query(Problem)
         .filter(
-            Problem.id ==
-            submission.problem_id
+            Problem.id == submission.problem_id
         )
         .first()
     )
+
 
     if passed == total:
         new_submission.status = "ACCEPTED"
         new_submission.score = (
             problem.points if problem else 0
         )
+
     else:
         new_submission.status = "WRONG_ANSWER"
         new_submission.score = 0
+
 
     new_submission.output = (
         f"{passed}/{total} testcases passed"
     )
 
+
     db.commit()
     db.refresh(new_submission)
+
 
     return {
         "message": "Code submitted",
@@ -129,13 +139,29 @@ def my_submissions(
 ):
 
     submissions = (
-        db.query(Submission)
+        db.query(
+            Submission,
+            Problem.title
+        )
+        .join(
+            Problem,
+            Submission.problem_id == Problem.id
+        )
         .filter(
-            Submission.user_id
-            ==
-            current_user.id
+            Submission.user_id == current_user.id
         )
         .all()
     )
 
-    return submissions
+
+    return [
+        {
+            "id": sub.id,
+            "problem_title": title,
+            "language": sub.language,
+            "status": sub.status,
+            "score": sub.score,
+            "output": sub.output
+        }
+        for sub, title in submissions
+    ]

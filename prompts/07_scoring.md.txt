@@ -1,0 +1,312 @@
+# =============================================================================
+#
+#                 AI ENGINEERING OPERATING SYSTEM (AEOS)
+#
+#                         SCORING MODULE
+#
+# =============================================================================
+
+
+LOAD CONTEXT
+
+Before generating any implementation, load:
+
+1.
+
+00_MASTER_CONTEXT.md
+
+
+2.
+
+01_GLOBAL_RULES.md
+
+
+3.
+
+02_ARCHITECTURE.md
+
+
+4.
+
+03_CODING_STANDARDS.md
+
+
+5.
+
+prompts/01_database.md
+
+
+6.
+
+prompts/02_auth.md
+
+
+7.
+
+prompts/03_admin.md
+
+
+8.
+
+prompts/04_student.md
+
+
+9.
+
+prompts/05_editor.md
+
+
+10.
+
+prompts/06_executor.md
+
+
+11.
+
+context/project_state.md
+
+
+
+Follow all AEOS engineering rules.
+
+
+
+IMPORTANT:
+
+- Generate only Scoring Module implementation prompt.
+- Do not generate code.
+- Do not modify previous prompts.
+- Follow existing Clean Architecture.
+- Stop after completing 07_scoring.md.
+
+
+# =============================================================================
+# OBJECTIVE
+# =============================================================================
+
+
+Design the production-ready Scoring Module for:
+
+
+TheGCPal Labs AI Elite Internship Hackathon Platform.
+
+
+
+This module converts execution results into final assessment scores.
+
+
+
+Features:
+
+
+✓ Execution Result Processing
+
+✓ Score Calculation Engine
+
+✓ Test Case Based Scoring
+
+✓ Performance Evaluation
+
+✓ Difficulty Weighting
+
+✓ Ranking Calculation
+
+✓ Leaderboard Data
+
+✓ Score History
+
+✓ Result Analytics
+
+
+
+Target:
+
+
+- 10 concurrent students
+- Live AI assessment
+- Accurate ranking system
+- Production-ready MVP
+
+
+# =============================================================================
+# ARCHITECTURE REQUIREMENT
+# =============================================================================
+
+
+Follow Clean Architecture:
+
+
+Execution Results
+
+↓
+
+Scoring Controller
+
+↓
+
+Scoring Service
+
+↓
+
+Calculation Engine
+
+↓
+
+Repository Layer
+
+↓
+
+Database
+
+
+
+Responsibilities:
+
+
+Controller:
+
+- Receive scoring requests
+- Return results
+
+
+Service:
+
+- Business rules
+- Score calculation workflow
+
+
+Calculation Engine:
+
+- Mathematical scoring logic
+
+
+Repository:
+
+- Data persistence only
+
+
+
+# =============================================================================
+# SCORING WORKFLOW
+# =============================================================================
+
+
+Flow:
+
+
+Code Execution Completed
+
+↓
+
+Execution Result Generated
+
+↓
+
+Scoring Engine Triggered
+
+↓
+
+Evaluate Test Cases
+
+↓
+
+Calculate Performance
+
+↓
+
+Apply Difficulty Weight
+
+↓
+
+Generate Final Score
+
+↓
+
+Update Student Ranking
+
+↓
+
+Update Leaderboard
+
+
+
+# =============================================================================
+# CODE EVALUATION RESULT PROCESSING
+# =============================================================================
+
+
+Input:
+
+
+Execution Result
+
+
+Contains:
+
+
+Submission ID
+
+
+Passed Tests
+
+
+Failed Tests
+
+
+Execution Time
+
+
+Memory Usage
+
+
+Runtime Status
+
+
+
+Processing:
+
+
+Validate result
+
+
+Calculate correctness
+
+
+Calculate performance
+
+
+Generate score
+
+
+
+# =============================================================================
+# SCORE CALCULATION ENGINE
+# =============================================================================
+
+
+Score Components:
+
+
+1.
+
+Functional Score
+
+
+2.
+
+Performance Score
+
+
+3.
+
+Difficulty Weight Score
+
+
+4.
+
+Quality Score (optional)
+
+
+
+Final Score Formula:
+

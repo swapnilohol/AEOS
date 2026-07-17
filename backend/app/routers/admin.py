@@ -74,3 +74,44 @@ def admin_stats(
         "total_problems": total_problems,
         "total_submissions": total_submissions
     }
+@router.get("/submissions")
+def admin_submissions(
+    db: Session = Depends(get_db),
+    user: User = Depends(
+        require_role("ADMIN")
+    )
+):
+
+    submissions = (
+        db.query(
+            Submission,
+            User.username,
+            Problem.title
+        )
+        .join(
+            User,
+            Submission.user_id == User.id
+        )
+        .join(
+            Problem,
+            Submission.problem_id == Problem.id
+        )
+        .order_by(
+            Submission.id.desc()
+        )
+        .limit(20)
+        .all()
+    )
+
+
+    return [
+        {
+            "id": sub.id,
+            "username": username,
+            "problem": title,
+            "language": sub.language,
+            "status": sub.status,
+            "score": sub.score
+        }
+        for sub, username, title in submissions
+    ]

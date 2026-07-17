@@ -2,10 +2,19 @@ import subprocess
 import tempfile
 
 
-def execute_python(
-    code: str,
-    input_data: str = ""
-):
+def execute_python(code: str, input_data: str = ""):
+
+    runner_code = f"""
+import json
+
+{code}
+
+data = json.loads({input_data!r})
+
+result = solve(**data)
+
+print(result)
+"""
 
     with tempfile.NamedTemporaryFile(
         suffix=".py",
@@ -13,13 +22,13 @@ def execute_python(
         delete=False
     ) as f:
 
-        f.write(code)
+        f.write(runner_code)
         file_path = f.name
+
 
     try:
         result = subprocess.run(
             ["python3", file_path],
-            input=input_data,
             capture_output=True,
             text=True,
             timeout=5
@@ -31,7 +40,9 @@ def execute_python(
             "error": result.stderr
         }
 
+
     except Exception as e:
+
         return {
             "status": "FAILED",
             "output": "",

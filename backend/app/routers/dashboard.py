@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
+from sqlalchemy import func
 
 from app.database import SessionLocal
 from app.models.user import User
@@ -36,32 +37,65 @@ def student_dashboard(
     )
 
     solved = (
-        db.query(Submission)
-        .filter(
-            Submission.user_id == current_user.id,
-            Submission.status == "ACCEPTED"
-        )
-        .count()
+    db.query(
+        Submission.problem_id
     )
+    .filter(
+        Submission.user_id == current_user.id,
+        Submission.status == "ACCEPTED"
+    )
+    .distinct()
+    .count()
+)
 
-    score = (
-        db.query(Submission)
+    total_score = solved * 100
+
+    total_problems = (
+        db.query(Submission.problem_id)
         .filter(
             Submission.user_id == current_user.id
         )
-        .with_entities(
-            Submission.score
+        .distinct()
+        .count()
+    )
+
+
+    rank_data = (
+        db.query(
+            User.username,
+            func.sum(
+                Submission.score
+            ).label("score")
+        )
+        .join(
+            Submission,
+            User.id == Submission.user_id
+        )
+        .filter(
+    User.role == "STUDENT"
+)
+        .group_by(
+            User.username
+        )
+        .order_by(
+            func.sum(
+                Submission.score
+            ).desc()
         )
         .all()
     )
 
-    total_score = sum(
-        s[0] or 0 for s in score
-    )
 
+    rank = 0
+
+    for index, user in enumerate(rank_data):
+        if user.username == current_user.username:
+            rank = index + 1
     return {
-        "username": current_user.username,
-        "total_submissions": total_submissions,
-        "solved_problems": solved,
-        "total_score": total_score
-    }
+    "username": current_user.username,
+    "total_submissions": total_submissions,
+    "attempted_problems": total_problems,
+    "solved_problems": solved,
+    "total_score": total_score,
+    "rank": rank
+}

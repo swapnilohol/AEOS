@@ -1,0 +1,390 @@
+# =============================================================================
+#
+#                 AI ENGINEERING OPERATING SYSTEM (AEOS)
+#
+#                 STUDENT MANAGEMENT MODULE
+#
+# =============================================================================
+
+LOAD CONTEXT
+
+Before generating code, load:
+
+1. 00_MASTER_CONTEXT.md
+
+2. 01_GLOBAL_RULES.md
+
+3. 02_ARCHITECTURE.md
+
+4. 03_CODING_STANDARDS.md
+
+5. prompts/01_database.md
+
+6. prompts/02_auth.md
+
+7. context/project_state.md
+
+
+Follow all engineering rules.
+
+Generate only Student Management related files.
+
+Never regenerate unchanged files.
+
+Stop after module completion.
+
+
+# =============================================================================
+# OBJECTIVE
+# =============================================================================
+
+Implement Production Ready Student Management System.
+
+Module Features:
+
+- Student Registration
+- Student Profile Management
+- Student CRUD Operations
+- Student Search
+- Student Dashboard
+- JWT Authentication Integration
+- Role Based Access Control
+
+
+# =============================================================================
+# ARCHITECTURE
+# =============================================================================
+
+Follow:
+
+Controller Layer
+
+        ↓
+
+Service Layer
+
+        ↓
+
+Repository Layer
+
+        ↓
+
+Database Layer
+
+
+Controller:
+
+- Handle API requests
+- Validate input
+- Return responses
+
+
+Service:
+
+- Business logic
+- Security checks
+- Validation rules
+
+
+Repository:
+
+- Database operations only
+
+
+# =============================================================================
+# DATABASE DESIGN
+# =============================================================================
+
+Create table:
+
+student_profiles
+
+
+Columns:
+
+id
+
+user_id
+
+student_id
+
+college_name
+
+department
+
+semester
+
+graduation_year
+
+phone_number
+
+skills
+
+resume_url
+
+created_at
+
+updated_at
+
+
+Relationship:
+
+User
+
+1 : Many
+
+StudentProfile
+
+
+Constraints:
+
+- user_id UNIQUE
+- student_id UNIQUE
+
+
+# =============================================================================
+# STUDENT MANAGEMENT FEATURES
+# =============================================================================
+
+Admin Features:
+
+- Create Student
+- View Students
+- Search Students
+- Update Student
+- Delete Student
+
+
+Student Features:
+
+- View Own Profile
+- Update Own Profile
+- View Dashboard
+
+
+# =============================================================================
+# API ENDPOINTS
+# =============================================================================
+
+Base Path:
+
+/api/v1/students
+
+
+ADMIN APIs:
+
+
+POST
+
+/api/v1/students
+
+Create Student
+
+
+GET
+
+/api/v1/students
+
+Get Student List
+
+
+GET
+
+/api/v1/students/{id}
+
+Get Student Details
+
+
+PUT
+
+/api/v1/students/{id}
+
+Update Student
+
+
+DELETE
+
+/api/v1/students/{id}
+
+Delete Student
+
+
+
+STUDENT APIs:
+
+
+GET
+
+/api/v1/students/me
+
+View Own Profile
+
+
+PUT
+
+/api/v1/students/me
+
+Update Own Profile
+
+
+GET
+
+/api/v1/students/dashboard
+
+Student Dashboard
+
+
+# =============================================================================
+# SECURITY
+# =============================================================================
+
+Use:
+
+JWT Authentication
+
+
+Roles:
+
+ADMIN
+
+STUDENT
+
+
+ADMIN:
+
+- Full student management access
+
+
+STUDENT:
+
+- Own profile access only
+- Own dashboard access only
+
+
+Block:
+
+- Access to other student data
+- Admin APIs
+
+
+# =============================================================================
+# VALIDATION
+# =============================================================================
+
+Email:
+
+- Required
+- Unique
+- Valid format
+
+
+Password:
+
+Minimum 8 characters
+
+Contains:
+
+- Uppercase
+- Lowercase
+- Number
+- Special character
+
+
+Student ID:
+
+- Required
+- Unique
+
+
+Semester:
+
+Allowed:
+
+1-8
+
+
+Phone:
+
+Valid mobile number
+
+
+# =============================================================================
+# REQUIRED FILES
+# =============================================================================
+
+Generate:
+
+
+Entity:
+
+StudentProfile
+
+
+DTO:
+
+StudentRequestDTO
+
+StudentResponseDTO
+
+
+Repository:
+
+StudentRepository
+
+
+Service:
+
+StudentService
+
+StudentServiceImpl
+
+
+Controller:
+
+StudentController
+
+
+Exception:
+
+StudentNotFoundException
+
+DuplicateStudentException
+
+
+Security:
+
+JWT Integration
+
+
+# =============================================================================
+# TESTING
+# =============================================================================
+
+Create tests for:
+
+- Student creation
+- Student update
+- Student deletion
+- Search
+- JWT authorization
+- Role validation
+- Dashboard access
+
+
+# =============================================================================
+# FINAL RULES
+# =============================================================================
+
+Follow:
+
+- Clean Architecture
+- SOLID Principles
+- Production Coding Standards
+
+Do not modify:
+
+- Database module
+- Authentication module
+
+
+END STUDENT MANAGEMENT MODULE

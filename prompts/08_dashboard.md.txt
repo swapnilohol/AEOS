@@ -1,0 +1,1210 @@
+# =============================================================================
+#
+#                 AI ENGINEERING OPERATING SYSTEM (AEOS)
+#
+#                       DASHBOARD MODULE
+#
+# =============================================================================
+
+
+LOAD CONTEXT
+
+Before generating any implementation, load:
+
+1.
+
+00_MASTER_CONTEXT.md
+
+
+2.
+
+01_GLOBAL_RULES.md
+
+
+3.
+
+02_ARCHITECTURE.md
+
+
+4.
+
+03_CODING_STANDARDS.md
+
+
+5.
+
+prompts/01_database.md
+
+
+6.
+
+prompts/02_auth.md
+
+
+7.
+
+prompts/03_admin.md
+
+
+8.
+
+prompts/04_student.md
+
+
+9.
+
+prompts/05_editor.md
+
+
+10.
+
+prompts/06_executor.md
+
+
+11.
+
+prompts/07_scoring.md
+
+
+12.
+
+context/project_state.md
+
+
+
+Follow all AEOS engineering rules.
+
+
+
+IMPORTANT:
+
+- Generate only Dashboard Module implementation prompt.
+- Do not generate code.
+- Do not modify previous prompts.
+- Follow existing Clean Architecture.
+- Stop after completing 08_dashboard.md.
+
+
+# =============================================================================
+# OBJECTIVE
+# =============================================================================
+
+
+Design the production-ready Dashboard Module for:
+
+
+TheGCPal Labs AI Elite Internship Hackathon Platform.
+
+
+
+This module provides role-based dashboards for:
+
+
+✓ Admin Monitoring
+
+✓ Student Progress
+
+✓ Performance Analytics
+
+✓ Score Visualization
+
+✓ Leaderboard Display
+
+✓ Assessment Monitoring
+
+✓ Reports
+
+
+
+Target:
+
+
+- 10 concurrent students
+- Live hackathon monitoring
+- Lightweight analytics
+- Production-ready MVP
+
+
+# =============================================================================
+# ARCHITECTURE REQUIREMENT
+# =============================================================================
+
+
+Follow Clean Architecture:
+
+
+Frontend Dashboard
+
+↓
+
+Dashboard API Controller
+
+↓
+
+Dashboard Service Layer
+
+↓
+
+Analytics Service
+
+↓
+
+Repository Layer
+
+↓
+
+Database
+
+
+
+Responsibilities:
+
+
+Controller:
+
+- Dashboard API handling
+- Response formatting
+
+
+Service:
+
+- Data aggregation
+- Business logic
+
+
+Analytics Service:
+
+- Calculate metrics
+- Prepare visualization data
+
+
+Repository:
+
+- Database access only
+
+
+
+# =============================================================================
+# ROLE BASED DASHBOARD ACCESS
+# =============================================================================
+
+
+Dashboard Types:
+
+
+ADMIN DASHBOARD
+
+
+STUDENT DASHBOARD
+
+
+
+# =============================================================================
+# ADMIN DASHBOARD
+# =============================================================================
+
+
+Purpose:
+
+
+Provide complete hackathon monitoring.
+
+
+
+Admin Dashboard Displays:
+
+
+## Platform Overview
+
+
+Statistics Cards:
+
+
+- Total Students
+- Active Students
+- Total Problems
+- Total Submissions
+- Completed Assessments
+- Average Score
+
+
+
+## Live Assessment Status
+
+
+Display:
+
+
+- Currently Active Students
+- Running Executions
+- Completed Submissions
+- Failed Executions
+
+
+
+## Performance Analytics
+
+
+Metrics:
+
+
+- Student performance trends
+- Problem completion rate
+- Average execution score
+- Difficulty analysis
+
+
+
+## Leaderboard Monitoring
+
+
+Display:
+
+
+- Student ranking
+- Top performers
+- Score distribution
+
+
+
+## Reports
+
+
+Generate:
+
+
+- Student report
+- Score report
+- Submission report
+
+
+
+# =============================================================================
+# STUDENT DASHBOARD
+# =============================================================================
+
+
+Purpose:
+
+
+Personal assessment tracking.
+
+
+
+Student Dashboard Displays:
+
+
+## Profile Summary
+
+
+- Name
+- College
+- Department
+- Semester
+
+
+
+## Assessment Status
+
+
+- Hackathon status
+- Remaining time
+- Assigned problems
+
+
+
+## Progress Tracking
+
+
+Display:
+
+
+- Problems attempted
+- Problems solved
+- Completion percentage
+- Current score
+
+
+
+## Score Visualization
+
+
+Charts:
+
+
+- Score progress
+- Problem performance
+- Submission history
+
+
+
+## Leaderboard Position
+
+
+Display:
+
+
+- Current rank
+- Total participants
+- Score gap
+
+
+
+# =============================================================================
+# PERFORMANCE ANALYTICS
+# =============================================================================
+
+
+Generate analytics design for:
+
+
+Student Performance:
+
+
+- Average score
+- Completion rate
+- Attempts
+
+
+Problem Analytics:
+
+
+- Success rate
+- Average attempts
+- Difficulty impact
+
+
+Execution Analytics:
+
+
+- Runtime failures
+- Timeout count
+- Average execution time
+
+
+
+# =============================================================================
+# SCORE VISUALIZATION
+# =============================================================================
+
+
+Support:
+
+
+Charts
+
+
+Graphs
+
+
+Statistics Cards
+
+
+
+Visualization Data:
+
+
+Total Score
+
+
+Problem Scores
+
+
+Performance Score
+
+
+Ranking History
+
+
+
+Avoid:
+
+
+Complex BI systems.
+
+
+
+# =============================================================================
+# LEADERBOARD DISPLAY
+# =============================================================================
+
+
+Leaderboard Features:
+
+
+Student Ranking
+
+
+Score Ordering
+
+
+Problem Completion
+
+
+Performance Ranking
+
+
+
+Visibility:
+
+
+Student:
+
+
+Own rank + public leaderboard
+
+
+Admin:
+
+
+Complete leaderboard
+
+
+
+# =============================================================================
+# REAL-TIME ASSESSMENT STATUS
+# =============================================================================
+
+
+Provide live status updates.
+
+
+Track:
+
+
+Student activity
+
+
+Submission status
+
+
+Execution status
+
+
+Hackathon timer
+
+
+
+Implementation Options:
+
+
+Polling
+
+
+WebSocket ready architecture
+
+
+
+MVP:
+
+
+Polling support acceptable.
+
+
+
+# =============================================================================
+# STATISTICS CARDS
+# =============================================================================
+
+
+Reusable component:
+
+
+StatsCard
+
+
+
+Examples:
+
+
+Total Students
+
+
+Active Sessions
+
+
+Average Score
+
+
+Completion Rate
+
+
+Leaderboard Rank
+
+
+
+Requirements:
+
+
+- Dynamic data
+- Loading state
+- Error state
+
+
+
+# =============================================================================
+# CHARTS AND REPORTS
+# =============================================================================
+
+
+Support:
+
+
+Line Charts
+
+
+Bar Charts
+
+
+Progress Charts
+
+
+Ranking Charts
+
+
+
+Reports:
+
+
+Student Performance Report
+
+
+Hackathon Summary Report
+
+
+Submission Analysis Report
+
+
+
+# =============================================================================
+# DATABASE UPDATES
+# =============================================================================
+
+
+Create optional analytics cache:
+
+
+dashboard_statistics
+
+
+
+Fields:
+
+
+id
+
+
+metric_name
+
+
+metric_value
+
+
+role
+
+
+updated_at
+
+
+
+Create:
+
+
+activity_logs
+
+
+
+Fields:
+
+
+id
+
+
+user_id
+
+
+activity_type
+
+
+metadata
+
+
+created_at
+
+
+
+Purpose:
+
+
+Dashboard monitoring.
+
+
+
+# =============================================================================
+# DASHBOARD APIs
+# =============================================================================
+
+
+Base:
+
+
+/api/v1/dashboard
+
+
+
+# =============================================================================
+# ADMIN DASHBOARD APIs
+# =============================================================================
+
+
+GET
+
+
+/dashboard/admin/overview
+
+
+
+Returns:
+
+
+Platform statistics
+
+
+Hackathon status
+
+
+Performance summary
+
+
+
+GET
+
+
+/dashboard/admin/analytics
+
+
+
+Returns:
+
+
+Analytics metrics
+
+
+Reports
+
+
+
+GET
+
+
+/dashboard/admin/activity
+
+
+
+Returns:
+
+
+Recent activities
+
+
+
+# =============================================================================
+# STUDENT DASHBOARD APIs
+# =============================================================================
+
+
+GET
+
+
+/dashboard/student/overview
+
+
+
+Returns:
+
+
+Profile
+
+
+Progress
+
+
+Score
+
+
+Ranking
+
+
+
+GET
+
+
+/dashboard/student/performance
+
+
+
+Returns:
+
+
+Charts data
+
+
+Score history
+
+
+
+GET
+
+
+/dashboard/student/leaderboard
+
+
+
+Returns:
+
+
+Leaderboard position
+
+
+
+# =============================================================================
+# BACKEND SERVICES
+# =============================================================================
+
+
+Generate design for:
+
+
+Controllers:
+
+
+dashboard_controller
+
+
+
+Services:
+
+
+dashboard_service
+
+
+analytics_service
+
+
+report_service
+
+
+activity_service
+
+
+
+Repositories:
+
+
+dashboard_repository
+
+
+analytics_repository
+
+
+activity_repository
+
+
+
+Follow:
+
+
+Controller
+
+↓
+
+Service
+
+↓
+
+Repository
+
+
+
+# =============================================================================
+# FRONTEND COMPONENTS
+# =============================================================================
+
+
+Admin Components:
+
+
+AdminDashboard
+
+
+StatsCard
+
+
+AnalyticsChart
+
+
+LeaderboardTable
+
+
+ReportPanel
+
+
+ActivityFeed
+
+
+
+Student Components:
+
+
+StudentDashboard
+
+
+ProgressCard
+
+
+ScoreChart
+
+
+RankCard
+
+
+ProblemProgress
+
+
+
+Shared:
+
+
+DashboardLayout
+
+
+DashboardNavbar
+
+
+DashboardSidebar
+
+
+
+# =============================================================================
+# FRONTEND PAGES
+# =============================================================================
+
+
+Admin:
+
+
+/admin/dashboard
+
+
+/admin/analytics
+
+
+/admin/reports
+
+
+
+Student:
+
+
+/student/dashboard
+
+
+/student/performance
+
+
+/student/leaderboard
+
+
+
+Requirements:
+
+
+✓ Responsive UI
+
+✓ Protected routes
+
+✓ Loading states
+
+✓ Error handling
+
+
+
+# =============================================================================
+# SECURITY RULES
+# =============================================================================
+
+
+Mandatory:
+
+
+✓ JWT Authentication
+
+
+✓ Role validation
+
+
+✓ Dashboard data isolation
+
+
+✓ Secure analytics access
+
+
+✓ Protected reports
+
+
+
+Rules:
+
+
+Student cannot:
+
+
+- View admin analytics
+- View private student data
+- Access reports
+
+
+
+# =============================================================================
+# ERROR HANDLING
+# =============================================================================
+
+
+Create errors:
+
+
+DashboardDataUnavailable
+
+
+AnalyticsGenerationFailed
+
+
+UnauthorizedDashboardAccess
+
+
+ReportGenerationFailed
+
+
+
+Response:
+
+
+{
+ "success":false,
+ "message":"",
+ "errors":[]
+}
+
+
+
+# =============================================================================
+# TESTING STRATEGY
+# =============================================================================
+
+
+Generate tests for:
+
+
+Admin Dashboard:
+
+
+✓ Admin access
+
+✓ Statistics loading
+
+
+
+Student Dashboard:
+
+
+✓ Student access
+
+✓ Own data only
+
+
+
+Analytics:
+
+
+✓ Correct calculations
+
+
+
+Security:
+
+
+✓ Student blocked from admin APIs
+
+✓ Invalid JWT rejected
+
+
+
+Reports:
+
+
+✓ Generation success
+
+✓ Error handling
+
+
+
+# =============================================================================
+# README DOCUMENTATION UPDATE
+# =============================================================================
+
+
+Update:
+
+
+README.md
+
+
+
+Include:
+
+
+Dashboard architecture
+
+
+Available dashboards
+
+
+Analytics workflow
+
+
+API documentation
+
+
+Permission model
+
+
+
+# =============================================================================
+# OUTPUT FORMAT
+# =============================================================================
+
+
+When this prompt is executed, Claude must generate:
+
+
+1.
+
+Architecture reasoning
+
+
+2.
+
+Database updates
+
+
+3.
+
+Affected files
+
+
+4.
+
+Backend implementation
+
+
+5.
+
+Frontend implementation
+
+
+6.
+
+Tests
+
+
+7.
+
+Documentation updates
+
+
+8.
+
+Repository State Snapshot
+
+
+
+Then STOP.
+
+
+
+# =============================================================================
+# REPOSITORY STATE SNAPSHOT
+# =============================================================================
+
+
+Repository Version:
+
+1.0.0
+
+
+
+Completed:
+
+
+✓ Bootstrap
+
+✓ Database
+
+✓ Authentication
+
+✓ Admin Portal
+
+✓ Student Module
+
+✓ Editor Module
+
+✓ Executor Module
+
+✓ Scoring Module
+
+✓ Dashboard Design
+
+
+
+Pending:
+
+
+- Deployment
+
+- Production Hardening
+
+- Monitoring
+
+- Final Launch
+
+
+
+Database Version:
+
+v8
+
+
+
+API Version:
+
+v1
+
+
+
+Next Prompt:
+
+prompts/09_deployment.md
+
+
+
+Maximum:
+
+300 tokens.
+
+
+
+STOP AFTER COMPLETING 08_DASHBOARD.MD.
+
+
+
+# =============================================================================

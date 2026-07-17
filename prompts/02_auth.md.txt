@@ -1,0 +1,605 @@
+# =============================================================================
+#
+#                 AI ENGINEERING OPERATING SYSTEM (AEOS)
+#
+#                    AUTHENTICATION MODULE
+#
+# =============================================================================
+
+
+## LOAD CONTEXT
+
+
+Before generating any implementation, load:
+
+
+1. 00_MASTER_CONTEXT.md
+
+2. 01_GLOBAL_RULES.md
+
+3. 02_ARCHITECTURE.md
+
+4. 03_CODING_STANDARDS.md
+
+5. prompts/01_database.md
+
+6. context/project_state.md
+
+
+
+Follow all AEOS engineering rules.
+
+
+
+# =============================================================================
+# OBJECTIVE
+# =============================================================================
+
+
+Implement production-ready authentication system for:
+
+
+TheGCPal Labs AI Elite Internship Hackathon Platform.
+
+
+
+Features:
+
+
+✓ JWT Authentication
+
+✓ Admin Login
+
+✓ Student Login
+
+✓ Password Hashing
+
+✓ Refresh Token Management
+
+✓ Role Based Access Control (RBAC)
+
+✓ Protected APIs
+
+✓ Logout Flow
+
+✓ Session Security
+
+
+
+Target:
+
+
+- 10 concurrent students
+- Production MVP
+- Secure authentication system
+
+
+
+# =============================================================================
+# AUTHENTICATION STRATEGY
+# =============================================================================
+
+
+Authentication Method:
+
+
+JWT Based Authentication
+
+
+
+Password Hashing:
+
+
+bcrypt
+
+
+
+User Roles:
+
+
+ADMIN
+
+
+STUDENT
+
+
+
+Authentication Flow:
+
+
+User Login
+
+↓
+
+Validate Credentials
+
+↓
+
+Verify Password Hash
+
+↓
+
+Generate Access Token
+
+↓
+
+Generate Refresh Token
+
+↓
+
+Return Authentication Response
+
+
+
+# =============================================================================
+# ARCHITECTURE REQUIREMENT
+# =============================================================================
+
+
+Follow Clean Architecture:
+
+
+API Controller
+
+↓
+
+Service Layer
+
+↓
+
+Repository Layer
+
+↓
+
+Database
+
+
+
+Responsibilities:
+
+
+Controller:
+
+
+- Receive authentication requests
+- Validate input
+- Return responses
+
+
+
+Service:
+
+
+- Login workflow
+- Token generation
+- User authentication logic
+
+
+
+Repository:
+
+
+- User database operations only
+
+
+
+# =============================================================================
+# DATABASE CHANGES
+# =============================================================================
+
+
+Update users table:
+
+
+
+Fields:
+
+
+id
+
+
+username
+
+
+email
+
+
+password_hash
+
+
+role
+
+
+is_active
+
+
+last_login_at
+
+
+refresh_token_hash
+
+
+failed_login_attempts
+
+
+locked_until
+
+
+created_at
+
+
+updated_at
+
+
+
+Constraints:
+
+
+Email must be unique
+
+
+Role required
+
+
+Password stored only as hash
+
+
+
+# =============================================================================
+# TOKEN CONFIGURATION
+# =============================================================================
+
+
+Access Token:
+
+
+Expiry:
+
+30 Minutes
+
+
+
+Refresh Token:
+
+
+Expiry:
+
+7 Days
+
+
+
+Algorithm:
+
+
+HS256
+
+
+
+Environment Variables:
+
+
+JWT_SECRET=
+
+
+JWT_REFRESH_SECRET=
+
+
+JWT_ACCESS_EXPIRE_MINUTES=
+
+
+JWT_REFRESH_EXPIRE_DAYS=
+
+
+
+# =============================================================================
+# API DESIGN
+# =============================================================================
+
+
+Base:
+
+
+/api/v1/auth
+
+
+
+## Login
+
+
+POST
+
+
+/api/v1/auth/login
+
+
+
+Purpose:
+
+
+Authenticate ADMIN and STUDENT users.
+
+
+
+## Refresh Token
+
+
+POST
+
+
+/api/v1/auth/refresh
+
+
+
+Purpose:
+
+
+Generate new access token.
+
+
+
+## Logout
+
+
+POST
+
+
+/api/v1/auth/logout
+
+
+
+Purpose:
+
+
+Invalidate refresh token session.
+
+
+
+## Current User
+
+
+GET
+
+
+/api/v1/auth/me
+
+
+
+Purpose:
+
+
+Return authenticated user information.
+
+
+
+## Change Password
+
+
+POST
+
+
+/api/v1/auth/change-password
+
+
+
+Purpose:
+
+
+Allow user password update.
+
+
+
+## Create Student Account
+
+
+POST
+
+
+/api/v1/auth/admin/create-student
+
+
+
+Access:
+
+
+ADMIN only
+
+
+
+Purpose:
+
+
+Admin creates student account.
+
+
+
+# =============================================================================
+# BACKEND FILE STRUCTURE
+# =============================================================================
+
+
+Generate:
+
+
+
+apps/backend/app/
+
+
+api/v1/
+
+- auth.py
+
+
+
+schemas/
+
+- auth.py
+
+
+
+services/
+
+- auth_service.py
+
+- token_service.py
+
+
+
+repositories/
+
+- user_repository.py
+
+
+
+core/
+
+- security.py
+
+
+
+middleware/
+
+- auth_middleware.py
+
+
+
+dependencies/
+
+- auth.py
+
+
+
+utils/
+
+- password.py
+
+
+
+# =============================================================================
+# FRONTEND FILE STRUCTURE
+# =============================================================================
+
+
+Generate:
+
+
+
+apps/frontend/
+
+
+app/login/page.tsx
+
+
+app/admin/login/page.tsx
+
+
+lib/auth.ts
+
+
+services/auth.service.ts
+
+
+middleware.ts
+
+
+
+# =============================================================================
+# SECURITY REQUIREMENTS
+# =============================================================================
+
+
+Mandatory:
+
+
+✓ Hash passwords using bcrypt
+
+
+✓ Never store plaintext passwords
+
+
+✓ Hash refresh tokens
+
+
+✓ Rotate refresh tokens
+
+
+✓ Validate JWT tokens
+
+
+✓ Secure cookies
+
+
+✓ Protect sensitive routes
+
+
+✓ Rate limit login attempts
+
+
+✓ Account lock after failed attempts
+
+
+✓ Hide authentication errors
+
+
+
+Never expose:
+
+
+- Passwords
+- JWT secrets
+- Refresh tokens
+- Internal security details
+
+
+
+# =============================================================================
+# ROLE BASED ACCESS CONTROL
+# =============================================================================
+
+
+ADMIN:
+
+
+Allowed:
+
+
+- Create students
+- Access admin APIs
+- Manage platform resources
+
+
+
+STUDENT:
+
+
+Allowed:
+
+
+- Login
+- Access student dashboard
+- Submit solutions
+
+
+
+Student cannot:
+
+
+- Access admin APIs
+- View other users data
+- Modify roles
+
+
+
+# =============================================================================
+# API RESPONSE FORMAT
+# =============================================================================
+
+
+Success:
+
+
+```json
+{
+ "success": true,
+ "message": "",
+ "data": {}
+}

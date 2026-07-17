@@ -1,0 +1,260 @@
+# =============================================================================
+#
+#                 AI ENGINEERING OPERATING SYSTEM (AEOS)
+#
+#                    CODE EXECUTION ENGINE MODULE
+#
+# =============================================================================
+
+
+LOAD CONTEXT
+
+Before generating any implementation, load:
+
+1.
+
+00_MASTER_CONTEXT.md
+
+
+2.
+
+01_GLOBAL_RULES.md
+
+
+3.
+
+02_ARCHITECTURE.md
+
+
+4.
+
+03_CODING_STANDARDS.md
+
+
+5.
+
+prompts/01_database.md
+
+
+6.
+
+prompts/02_auth.md
+
+
+7.
+
+prompts/03_admin.md
+
+
+8.
+
+prompts/04_student.md
+
+
+9.
+
+prompts/05_editor.md
+
+
+10.
+
+context/project_state.md
+
+
+
+Follow all AEOS engineering rules.
+
+
+
+IMPORTANT:
+
+- Generate only Executor Module implementation prompt.
+- Do not generate code.
+- Do not modify previous prompts.
+- Follow existing architecture.
+- Stop after completing 06_executor.md.
+
+
+# =============================================================================
+# OBJECTIVE
+# =============================================================================
+
+
+Design the production-ready Code Execution Engine Module for:
+
+
+TheGCPal Labs AI Elite Internship Hackathon Platform.
+
+
+
+This module executes student submitted code securely and returns evaluation results.
+
+
+
+Features:
+
+
+✓ Secure Code Execution
+
+✓ Execution Queue
+
+✓ Runtime Management
+
+✓ Sandbox Isolation
+
+✓ Test Case Execution
+
+✓ Result Processing
+
+✓ Execution APIs
+
+✓ Failure Handling
+
+✓ Resource Management
+
+
+
+Target:
+
+
+- 10 concurrent students
+- Live coding assessment
+- Secure isolated execution
+- Single VPS deployment
+
+
+# =============================================================================
+# ARCHITECTURE REQUIREMENT
+# =============================================================================
+
+
+Follow Execution Architecture:
+
+
+Submission API
+
+↓
+
+Execution Queue
+
+↓
+
+Executor Service
+
+↓
+
+Sandbox Container
+
+↓
+
+Runtime Environment
+
+↓
+
+Test Execution
+
+↓
+
+Result Processor
+
+↓
+
+Database
+
+
+
+Responsibilities:
+
+
+API Layer:
+
+- Receive execution request
+- Return execution status
+
+
+Queue Layer:
+
+- Manage pending executions
+
+
+Executor Service:
+
+- Run submitted code
+
+
+Sandbox:
+
+- Isolated environment
+
+
+Result Processor:
+
+- Store execution outcome
+
+
+
+# =============================================================================
+# EXECUTION ENGINE DESIGN
+# =============================================================================
+
+
+Technology:
+
+
+Docker based isolated execution.
+
+
+
+Execution Flow:
+
+
+```text
+Student Submit Code
+
+        |
+
+        ▼
+
+Submission Created
+
+        |
+
+        ▼
+
+Execution Queue
+
+        |
+
+        ▼
+
+Executor Worker
+
+        |
+
+        ▼
+
+Create Sandbox Container
+
+        |
+
+        ▼
+
+Compile / Run Code
+
+        |
+
+        ▼
+
+Execute Test Cases
+
+        |
+
+        ▼
+
+Collect Result
+
+        |
+
+        ▼
+
+Store Result

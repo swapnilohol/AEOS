@@ -1,0 +1,203 @@
+# =============================================================================
+#
+#                 AI ENGINEERING OPERATING SYSTEM (AEOS)
+#
+#                       DEPLOYMENT MODULE
+#
+# =============================================================================
+
+
+LOAD CONTEXT
+
+Before generating any implementation, load:
+
+1.
+
+00_MASTER_CONTEXT.md
+
+
+2.
+
+01_GLOBAL_RULES.md
+
+
+3.
+
+02_ARCHITECTURE.md
+
+
+4.
+
+03_CODING_STANDARDS.md
+
+
+5.
+
+prompts/01_database.md
+
+
+6.
+
+prompts/02_auth.md
+
+
+7.
+
+prompts/03_admin.md
+
+
+8.
+
+prompts/04_student.md
+
+
+9.
+
+prompts/05_editor.md
+
+
+10.
+
+prompts/06_executor.md
+
+
+11.
+
+prompts/07_scoring.md
+
+
+12.
+
+prompts/08_dashboard.md
+
+
+13.
+
+context/project_state.md
+
+
+
+Follow all AEOS engineering rules.
+
+
+
+IMPORTANT:
+
+- Generate only Deployment Module implementation prompt.
+- Do not generate code.
+- Do not modify previous prompts.
+- Follow existing Clean Architecture.
+- Stop after completing 09_deployment.md.
+
+
+# =============================================================================
+# OBJECTIVE
+# =============================================================================
+
+
+Design the production deployment architecture for:
+
+
+TheGCPal Labs AI Elite Internship Hackathon Platform.
+
+
+
+This module manages:
+
+
+✓ Production Deployment
+
+✓ VPS Infrastructure
+
+✓ Docker Deployment
+
+✓ Environment Management
+
+✓ Database Deployment
+
+✓ Backend Hosting
+
+✓ Frontend Hosting
+
+✓ Reverse Proxy
+
+✓ SSL Security
+
+✓ CI/CD Automation
+
+✓ Monitoring
+
+✓ Backup
+
+
+
+Target:
+
+
+- 10 concurrent students
+- Budget optimized deployment
+- Live hackathon ready
+- Production MVP
+
+
+# =============================================================================
+# DEPLOYMENT ARCHITECTURE
+# =============================================================================
+
+
+Deployment Flow:
+
+
+User Browser
+
+↓
+
+Nginx Reverse Proxy
+
+↓
+
+Frontend Application
+
+↓
+
+Backend API
+
+↓
+
+Database
+
+↓
+
+Execution Engine Containers
+
+
+
+Architecture:
+
+
+```text
+                Users
+
+                  |
+
+                  |
+
+               Nginx
+
+              /     \
+
+             /       \
+
+       Frontend     Backend
+
+                      |
+
+                   Database
+
+                      |
+
+             Execution Workers
+
+                      |
+
+                 Docker Sandbox

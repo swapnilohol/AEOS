@@ -1,0 +1,170 @@
+# API State
+
+Project:
+TheGCPal Labs AI Elite Internship Hackathon Platform
+
+
+API Version:
+
+v1
+
+
+## Current Status
+
+API Design Phase
+
+
+## Completed
+
+✓ API Architecture Defined
+
+✓ REST API Structure Planned
+
+✓ API Versioning Strategy Defined
+
+
+## Implemented APIs
+
+None
+
+
+## Planned API Modules
+
+
+## Authentication APIs
+
+Status:
+
+Pending
+
+
+Endpoints:
+
+- POST /api/v1/auth/login
+- POST /api/v1/auth/register
+- POST /api/v1/auth/logout
+- GET /api/v1/auth/profile
+
+
+
+## Admin APIs
+
+Status:
+
+Pending
+
+
+Endpoints:
+
+- GET /api/v1/admin/students
+- POST /api/v1/admin/problems
+- PUT /api/v1/admin/problems/{id}
+- DELETE /api/v1/admin/problems/{id}
+- GET /api/v1/admin/submissions
+
+
+
+## Student APIs
+
+Status:
+
+Pending
+
+
+Endpoints:
+
+- GET /api/v1/student/profile
+- PUT /api/v1/student/profile
+- GET /api/v1/student/problems
+- POST /api/v1/student/submissions
+- GET /api/v1/student/results
+
+
+
+## Editor APIs
+
+Status:
+
+Pending
+
+
+Endpoints:
+
+- GET /api/v1/editor/workspace/{problem_id}
+- POST /api/v1/editor/drafts
+- PUT /api/v1/editor/drafts/{id}
+- POST /api/v1/editor/submit
+
+
+
+## Execution APIs
+
+Status:
+
+Pending
+
+
+Endpoints:
+
+- POST /api/v1/execution/run
+- GET /api/v1/execution/status/{id}
+- GET /api/v1/execution/result/{id}
+
+
+
+## Scoring APIs
+
+Status:
+
+Pending
+
+
+Endpoints:
+
+- POST /api/v1/scoring/calculate
+- GET /api/v1/scoring/result/{student_id}
+- GET /api/v1/scoring/leaderboard
+
+
+
+## Dashboard APIs
+
+Status:
+
+Pending
+
+
+Endpoints:
+
+- GET /api/v1/dashboard/admin
+- GET /api/v1/dashboard/student
+- GET /api/v1/dashboard/analytics
+
+
+
+# API Standards
+
+
+Follow:
+
+- REST API Architecture
+- JSON Communication
+- API Versioning
+- JWT Authentication
+- Role Based Access Control
+- Request Validation
+- Standard Error Handling
+
+
+
+# Response Format
+
+
+Success Response:
+
+```json
+{
+  "success": true,
+  "message": "",
+  "data": {}
+}

@@ -1,0 +1,1110 @@
+# =============================================================================
+#
+#                 AI ENGINEERING OPERATING SYSTEM (AEOS)
+#
+#                       FINAL SYSTEM REVIEW MODULE
+#
+# =============================================================================
+
+
+LOAD CONTEXT
+
+Before generating any implementation, load:
+
+1.
+
+00_MASTER_CONTEXT.md
+
+
+2.
+
+01_GLOBAL_RULES.md
+
+
+3.
+
+02_ARCHITECTURE.md
+
+
+4.
+
+03_CODING_STANDARDS.md
+
+
+5.
+
+prompts/01_database.md
+
+
+6.
+
+prompts/02_auth.md
+
+
+7.
+
+prompts/03_admin.md
+
+
+8.
+
+prompts/04_student.md
+
+
+9.
+
+prompts/05_editor.md
+
+
+10.
+
+prompts/06_executor.md
+
+
+11.
+
+prompts/07_scoring.md
+
+
+12.
+
+prompts/08_dashboard.md
+
+
+13.
+
+prompts/09_deployment.md
+
+
+14.
+
+context/project_state.md
+
+
+
+Follow all AEOS engineering standards.
+
+
+
+IMPORTANT:
+
+- Generate only Final Review Module implementation prompt.
+- Do not generate code.
+- Do not modify previous prompts.
+- Review existing system only.
+- Follow AEOS quality standards.
+- Stop after completing 10_review.md.
+
+
+# =============================================================================
+# OBJECTIVE
+# =============================================================================
+
+
+Design the Final System Review Module for:
+
+
+TheGCPal Labs AI Elite Internship Hackathon Platform.
+
+
+
+Purpose:
+
+
+Perform complete production readiness audit before launch.
+
+
+
+Review Areas:
+
+
+✓ Architecture
+
+✓ Backend
+
+✓ Frontend
+
+✓ Database
+
+✓ APIs
+
+✓ Security
+
+✓ Deployment
+
+✓ Performance
+
+✓ Testing
+
+✓ Documentation
+
+
+
+Target:
+
+
+Validate:
+
+- Stable MVP release
+- Secure production deployment
+- Maintainable architecture
+- Hackathon readiness
+
+
+# =============================================================================
+# FINAL SYSTEM REVIEW PROCESS
+# =============================================================================
+
+
+Review Flow:
+
+
+Repository Analysis
+
+↓
+
+Architecture Review
+
+↓
+
+Code Quality Review
+
+↓
+
+Security Audit
+
+↓
+
+Database Audit
+
+↓
+
+API Audit
+
+↓
+
+Frontend Audit
+
+↓
+
+Backend Audit
+
+↓
+
+Deployment Audit
+
+↓
+
+Performance Testing
+
+↓
+
+Documentation Review
+
+↓
+
+Final Audit Report
+
+
+
+# =============================================================================
+# ARCHITECTURE REVIEW
+# =============================================================================
+
+
+Review:
+
+
+System Architecture
+
+
+Clean Architecture Compliance
+
+
+Module Separation
+
+
+Dependency Management
+
+
+Scalability Design
+
+
+Component Communication
+
+
+
+Validate:
+
+
+✓ Frontend separation
+
+✓ Backend layering
+
+✓ Repository pattern
+
+✓ Service boundaries
+
+✓ Execution isolation
+
+
+
+Identify:
+
+
+Architecture violations
+
+
+Technical debt
+
+
+Future scaling risks
+
+
+
+# =============================================================================
+# CODE QUALITY REVIEW
+# =============================================================================
+
+
+Review:
+
+
+Coding standards
+
+
+Naming conventions
+
+
+Folder organization
+
+
+Code duplication
+
+
+Complexity
+
+
+Maintainability
+
+
+
+Check:
+
+
+✓ Consistent patterns
+
+✓ Clean functions
+
+✓ Proper error handling
+
+✓ Documentation comments
+
+
+
+Generate:
+
+
+Code quality score
+
+
+Improvement suggestions
+
+
+
+# =============================================================================
+# SECURITY REVIEW
+# =============================================================================
+
+
+Audit:
+
+
+Authentication
+
+
+Authorization
+
+
+JWT handling
+
+
+RBAC implementation
+
+
+Password security
+
+
+API protection
+
+
+Input validation
+
+
+Secrets management
+
+
+
+Execution Security:
+
+
+Review:
+
+
+Sandbox isolation
+
+
+Container restrictions
+
+
+Resource limits
+
+
+Code execution safety
+
+
+
+Check:
+
+
+No exposed secrets
+
+
+No insecure endpoints
+
+
+No privilege escalation
+
+
+
+# =============================================================================
+# DATABASE REVIEW
+# =============================================================================
+
+
+Review:
+
+
+Schema design
+
+
+Relationships
+
+
+Indexes
+
+
+Constraints
+
+
+Migration strategy
+
+
+Data integrity
+
+
+
+Validate:
+
+
+✓ User model
+
+✓ Student model
+
+✓ Problem model
+
+✓ Submission model
+
+✓ Execution model
+
+✓ Score model
+
+
+
+Check:
+
+
+Query efficiency
+
+
+Backup readiness
+
+
+Data consistency
+
+
+
+# =============================================================================
+# API REVIEW
+# =============================================================================
+
+
+Review:
+
+
+API structure
+
+
+Versioning
+
+
+Authentication
+
+
+Authorization
+
+
+Validation
+
+
+Error responses
+
+
+
+Check:
+
+
+REST standards
+
+
+Response consistency
+
+
+Documentation completeness
+
+
+Rate limiting
+
+
+
+Generate:
+
+
+API quality report
+
+
+
+# =============================================================================
+# BACKEND REVIEW
+# =============================================================================
+
+
+Review:
+
+
+Controllers
+
+
+Services
+
+
+Repositories
+
+
+Models
+
+
+Background workers
+
+
+Execution engine
+
+
+
+Validate:
+
+
+✓ Clean separation
+
+✓ Business logic placement
+
+✓ Exception handling
+
+✓ Logging
+
+
+
+Identify:
+
+
+Backend risks
+
+
+Optimization areas
+
+
+
+# =============================================================================
+# FRONTEND REVIEW
+# =============================================================================
+
+
+Review:
+
+
+Component structure
+
+
+State management
+
+
+Routing
+
+
+API integration
+
+
+User experience
+
+
+Responsiveness
+
+
+
+Validate:
+
+
+✓ Admin dashboard
+
+✓ Student dashboard
+
+✓ Editor interface
+
+✓ Leaderboard
+
+✓ Analytics
+
+
+
+Check:
+
+
+Loading states
+
+
+Error states
+
+
+Protected routes
+
+
+
+# =============================================================================
+# DEPLOYMENT REVIEW
+# =============================================================================
+
+
+Review:
+
+
+Infrastructure
+
+
+Docker setup
+
+
+Environment management
+
+
+Nginx configuration
+
+
+SSL setup
+
+
+CI/CD pipeline
+
+
+
+Validate:
+
+
+✓ Production deployment ready
+
+✓ Rollback capability
+
+✓ Backup strategy
+
+✓ Monitoring availability
+
+
+
+# =============================================================================
+# PERFORMANCE REVIEW
+# =============================================================================
+
+
+Evaluate:
+
+
+Application performance
+
+
+Database performance
+
+
+API response time
+
+
+Frontend loading
+
+
+Execution engine capacity
+
+
+
+Target:
+
+
+10 concurrent students.
+
+
+
+Review:
+
+
+CPU usage
+
+
+Memory usage
+
+
+Queue performance
+
+
+Database queries
+
+
+
+# =============================================================================
+# TESTING COVERAGE REVIEW
+# =============================================================================
+
+
+Review:
+
+
+Unit tests
+
+
+Integration tests
+
+
+API tests
+
+
+Security tests
+
+
+Execution tests
+
+
+
+Coverage Areas:
+
+
+Authentication
+
+
+Student workflow
+
+
+Admin workflow
+
+
+Editor
+
+
+Executor
+
+
+Scoring
+
+
+Dashboard
+
+
+
+Generate:
+
+
+Coverage report
+
+
+Missing test recommendations
+
+
+
+# =============================================================================
+# DOCUMENTATION REVIEW
+# =============================================================================
+
+
+Review:
+
+
+README
+
+
+Architecture documents
+
+
+API documentation
+
+
+Deployment guide
+
+
+Environment setup
+
+
+
+Validate:
+
+
+New developer onboarding readiness.
+
+
+
+# =============================================================================
+# PRODUCTION READINESS CHECKLIST
+# =============================================================================
+
+
+Verify:
+
+
+## Application
+
+
+✓ All modules integrated
+
+✓ No blocking bugs
+
+✓ Error handling complete
+
+
+## Security
+
+
+✓ HTTPS enabled
+
+✓ Secrets protected
+
+✓ RBAC verified
+
+
+## Infrastructure
+
+
+✓ Deployment successful
+
+✓ Monitoring enabled
+
+✓ Backup configured
+
+
+## Testing
+
+
+✓ Critical flows tested
+
+✓ Load validated
+
+
+## Documentation
+
+
+✓ Complete documentation
+
+
+
+# =============================================================================
+# ISSUE TRACKING
+# =============================================================================
+
+
+Create issue categories:
+
+
+Critical
+
+
+High
+
+
+Medium
+
+
+Low
+
+
+
+Issue Format:
+
+
+ID
+
+
+Module
+
+
+Description
+
+
+Severity
+
+
+Impact
+
+
+Recommendation
+
+
+Status
+
+
+
+Track:
+
+
+Security issues
+
+
+Performance issues
+
+
+Architecture issues
+
+
+Code issues
+
+
+
+# =============================================================================
+# IMPROVEMENT RECOMMENDATIONS
+# =============================================================================
+
+
+Generate recommendations for:
+
+
+Scalability
+
+
+Security improvements
+
+
+Performance improvements
+
+
+Developer experience
+
+
+Future features
+
+
+
+Future roadmap:
+
+
+Advanced monitoring
+
+
+AI assisted evaluation
+
+
+Multi college support
+
+
+Higher concurrency
+
+
+
+# =============================================================================
+# FINAL AUDIT REPORT
+# =============================================================================
+
+
+Generate:
+
+
+System Health Score
+
+
+Architecture Score
+
+
+Security Score
+
+
+Code Quality Score
+
+
+Testing Score
+
+
+Deployment Score
+
+
+
+Final Decision:
+
+
+READY FOR PRODUCTION
+
+
+or
+
+
+REQUIRES FIXES
+
+
+
+Include:
+
+
+Summary
+
+
+Findings
+
+
+Risks
+
+
+Recommendations
+
+
+Launch decision
+
+
+
+# =============================================================================
+# OUTPUT FORMAT
+# =============================================================================
+
+
+When this prompt is executed, Claude must generate:
+
+
+1.
+
+Complete system review
+
+
+2.
+
+Audit findings
+
+
+3.
+
+Issue tracking report
+
+
+4.
+
+Security assessment
+
+
+5.
+
+Performance assessment
+
+
+6.
+
+Production readiness checklist
+
+
+7.
+
+Final audit report
+
+
+8.
+
+Repository State Snapshot
+
+
+
+Then STOP.
+
+
+
+# =============================================================================
+# REPOSITORY STATE SNAPSHOT
+# =============================================================================
+
+
+Repository Version:
+
+1.2.0
+
+
+
+Completed:
+
+
+✓ Bootstrap
+
+✓ Database
+
+✓ Authentication
+
+✓ Admin Portal
+
+✓ Student Module
+
+✓ Editor Module
+
+✓ Executor Module
+
+✓ Scoring Module
+
+✓ Dashboard Module
+
+✓ Deployment Module
+
+✓ Final Review Module
+
+
+
+Status:
+
+
+FINAL SYSTEM AUDIT READY
+
+
+
+Database Version:
+
+v8
+
+
+
+API Version:
+
+v1
+
+
+
+Next Step:
+
+
+Production Launch
+
+
+
+Maximum:
+
+300 tokens.
+
+
+
+STOP AFTER COMPLETING 10_REVIEW.MD.
+
+
+
+# =============================================================================

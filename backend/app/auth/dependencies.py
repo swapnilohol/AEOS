@@ -28,6 +28,8 @@ def get_current_user(
     db: Session = Depends(get_db)
 ):
 
+    print("TOKEN RECEIVED:", token)
+
     try:
         payload = jwt.decode(
             token,
@@ -35,9 +37,13 @@ def get_current_user(
             algorithms=[ALGORITHM]
         )
 
+        print("PAYLOAD:", payload)
+
         email = payload.get("sub")
 
-    except:
+    except Exception as e:
+        print("JWT ERROR:", e)
+
         raise HTTPException(
             status_code=401,
             detail="Invalid token"

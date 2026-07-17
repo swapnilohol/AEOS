@@ -1,0 +1,337 @@
+# =============================================================================
+#
+#                 AI ENGINEERING OPERATING SYSTEM (AEOS)
+#
+#                           EDITOR MODULE
+#
+# =============================================================================
+
+
+LOAD CONTEXT
+
+Before generating any implementation, load:
+
+1.
+
+00_MASTER_CONTEXT.md
+
+
+2.
+
+01_GLOBAL_RULES.md
+
+
+3.
+
+02_ARCHITECTURE.md
+
+
+4.
+
+03_CODING_STANDARDS.md
+
+
+5.
+
+prompts/01_database.md
+
+
+6.
+
+prompts/02_auth.md
+
+
+7.
+
+prompts/03_admin.md
+
+
+8.
+
+prompts/04_student.md
+
+
+9.
+
+context/project_state.md
+
+
+
+Follow all AEOS engineering rules.
+
+
+
+IMPORTANT:
+
+- Generate only Editor Module implementation prompt.
+- Do not generate code.
+- Do not modify previous prompts.
+- Follow existing architecture.
+- Stop after completing 05_editor.md.
+
+
+# =============================================================================
+# OBJECTIVE
+# =============================================================================
+
+
+Design the production-ready Editor Module for:
+
+
+TheGCPal Labs AI Elite Internship Hackathon Platform.
+
+
+
+This module provides the coding environment where students solve assigned AI assessment problems.
+
+
+
+Features:
+
+
+✓ Code Editor Interface
+
+✓ Problem Workspace
+
+✓ Language Selection
+
+✓ Draft Management
+
+✓ Solution Submission Preparation
+
+✓ Editor Dashboard
+
+✓ Role Based Access
+
+✓ Secure Coding Workflow
+
+
+
+Target:
+
+
+- 10 concurrent students
+- Live monitored hackathon
+- Production-ready MVP
+
+
+# =============================================================================
+# ARCHITECTURE REQUIREMENT
+# =============================================================================
+
+
+Follow Clean Architecture:
+
+
+Frontend Editor UI
+
+↓
+
+API Controller
+
+↓
+
+Service Layer
+
+↓
+
+Repository Layer
+
+↓
+
+Database
+
+
+
+Responsibilities:
+
+
+Frontend:
+
+- Code editing experience
+- Draft handling
+- Submission actions
+
+
+Controller:
+
+- API handling
+- Validation
+
+
+Service:
+
+- Editor workflow
+- Draft management
+- Submission preparation
+
+
+Repository:
+
+- Database operations only
+
+
+
+# =============================================================================
+# EDITOR ROLE MANAGEMENT
+# =============================================================================
+
+
+Introduce Editor workspace role concept.
+
+
+
+Roles:
+
+
+ADMIN
+
+
+STUDENT
+
+
+EDITOR_SESSION
+
+
+
+EDITOR_SESSION represents:
+
+
+A temporary coding workspace created when a student starts solving a problem.
+
+
+
+Permissions:
+
+
+STUDENT:
+
+
+Can:
+
+- Open assigned problems
+- Write code
+- Save drafts
+- Submit solutions
+
+
+
+ADMIN:
+
+
+Can:
+
+- Monitor sessions
+- View submission activity
+
+
+
+Student cannot:
+
+
+- Access other drafts
+- Modify hidden test cases
+- Access execution environment
+
+
+# =============================================================================
+# EDITOR DASHBOARD
+# =============================================================================
+
+
+Create editor workspace dashboard.
+
+
+Display:
+
+
+Student Information
+
+
+Active Problem
+
+
+Remaining Time
+
+
+Current Language
+
+
+Draft Status
+
+
+Submission Status
+
+
+
+Components:
+
+
+Problem Header
+
+
+Code Editor Panel
+
+
+Action Toolbar
+
+
+Submission Status Panel
+
+
+
+# =============================================================================
+# CODE EDITOR INTERFACE
+# =============================================================================
+
+
+Implement design support for:
+
+
+Monaco Editor
+
+
+
+Features:
+
+
+✓ Syntax highlighting
+
+
+✓ Line numbers
+
+
+✓ Auto indentation
+
+
+✓ Language support
+
+
+✓ Error display
+
+
+✓ Full screen mode
+
+
+
+Editor Layout:
+
+
+```text
+--------------------------------
+
+Problem Details
+
+--------------------------------
+
+Code Editor
+
+--------------------------------
+
+Run / Save / Submit
+
+--------------------------------
+
+Submission Status
+
+--------------------------------

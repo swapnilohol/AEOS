@@ -1,0 +1,16 @@
+Repository Version: 0.1.0
+
+Completed Modules:
+- Master Context
+- Bootstrap
+
+Pending Modules:
+- Database
+- Authentication
+- Admin Portal
+- Student Portal
+- Editor
+- Executor
+- Scoring
+- Dashboard
+- Deployment
