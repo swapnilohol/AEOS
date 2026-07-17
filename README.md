@@ -1,4 +1,9 @@
 # AI Elite Internship Hackathon Platform
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Next.js](https://img.shields.io/badge/Next.js-Frontend-black)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
+![Docker](https://img.shields.io/badge/Docker-Container-blue)
 
 TheGCPal Labs — AI Engineering Operating System (AEOS)
 
@@ -313,9 +318,12 @@ Score : 400
 * Production Deployment
 ## Screenshots
 
+<<<<<<< HEAD
 ### Login
 ![Login](screenshots/login.png)
 
+=======
+>>>>>>> ba9ab52 (Add screenshots to README)
 ### Dashboard
 ![Dashboard](screenshots/dashboard.png)
 
@@ -327,3 +335,12 @@ Score : 400
 
 ### Admin Panel
 ![Admin](screenshots/admin.png)
+<<<<<<< HEAD
+=======
+## Author
+
+**Swapnil Kashinath Ohol**
+
+- GitHub: https://github.com/swapnilohol
+- Role: Java Backend Developer | Full Stack Developer
+>>>>>>> ba9ab52 (Add screenshots to README)
