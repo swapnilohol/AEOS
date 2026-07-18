@@ -26,7 +26,10 @@ export default function Navbar() {
         <Link href="/admin">
           Admin
         </Link>
-
+        <Link href="/register">
+  Register
+</Link>
+         
         <button
           onClick={() => {
             localStorage.removeItem("token");

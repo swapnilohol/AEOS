@@ -25,8 +25,11 @@ if (data.access_token) {
 
   alert("Login Successful");
 
-  window.location.href =
-    "/dashboard";
+  if (data.role === "ADMIN") {
+  window.location.href = "/admin";
+} else {
+  window.location.href = "/dashboard";
+}
 
 } else {
 
