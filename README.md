@@ -271,7 +271,101 @@ Accepted Submission
 Leaderboard
 Admin Dashboard
 Future Improvements
-Multi-language code execution
+# Screenshots
+
+## Register Page
+
+![Register](screenshots/register.png)
+
+## Login Page
+
+![Login](screenshots/login.png)
+
+## Student Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+## Problems Page
+
+![Problems](screenshots/problems.png)
+
+## Code Editor
+
+![Editor](screenshots/editor.png)
+
+## Accepted Submission
+
+![Accepted](screenshots/accepted.png)
+
+## Leaderboard
+
+![Leaderboard](screenshots/leaderboard.png)
+# Screenshots
+
+## Register Page
+
+![Register](screenshots/register.png)
+
+## Login Page
+
+![Login](screenshots/login.png)
+
+## Student Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+## Problems Page
+
+![Problems](screenshots/problems.png)
+
+## Code Editor
+
+![Editor](screenshots/editor.png)
+
+## Accepted Submission
+
+![Accepted](screenshots/accepted.png)
+
+## Leaderboard
+
+![Leaderboard](screenshots/leaderboard.png)
+
+# Screenshots
+
+## Register Page
+
+![Register](screenshots/register.png)
+
+## Login Page
+
+![Login](screenshots/login.png)
+
+## Student Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+## Problems Page
+
+![Problems](screenshots/problems.png)
+
+## Code Editor
+
+![Editor](screenshots/editor.png)
+
+## Accepted Submission
+
+![Accepted](screenshots/accepted.png)
+
+## Leaderboard
+
+![Leaderboard](screenshots/leaderboard.png)
+
+## Admin Dashboard
+
+![Admin](screenshots/admin.png)
+## Admin Dashboard
+
+![Admin](screenshots/admin.png)Multi-language code execution
 AI based code review
 Cloud deployment
 Advanced analytics
